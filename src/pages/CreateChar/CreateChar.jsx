@@ -18,9 +18,6 @@ const CreateChar = () => {
     getClassList()
     .then(classData => setClasses(classData.results))
   }, [charClass, charRace])
-
-  console.log(races)
-  console.log(classes)
   
   const [STR, setSTR] = useState('')
   const [DEX, setDEX] = useState('')
@@ -80,14 +77,14 @@ const CreateChar = () => {
       <h3>Class : 
         <select name="charClass" id="charClass">
           {classes.map((char) => (
-            <option value={char.name}>{char.name}</option>
+            <option value={char.name} key={char.index}>{char.name}</option>
           ))}
         </select>
       </h3>
       <h3>Race : 
         <select name="charRace" id="charRace">
         {races.map((race) => (
-                <option value={race.name}>{race.name}</option>
+                <option value={race.name} key={race.index}>{race.name}</option>
           ))}
           </select>
         </h3>
