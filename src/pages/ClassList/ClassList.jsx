@@ -12,8 +12,8 @@ const ClassList = (props) => {
 
   return (
     <>
+      <h3>Class List</h3>
       <div className='app'>
-        <h3>Class List</h3>
         <div className='icon-container'>
           {classes.map((classTitle) => (
             <Link to='/class' state={{classTitle}} key={classTitle.index}>

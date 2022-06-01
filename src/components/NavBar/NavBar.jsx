@@ -1,5 +1,5 @@
 const NavBar = (props) => {
-  console.log(props.navItems);
+  
   return (
     <header className="App-header">
       <img 

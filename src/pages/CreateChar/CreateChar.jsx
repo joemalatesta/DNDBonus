@@ -1,7 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getRaceList } from '../../services/api-calls'
+import { Link } from 'react-router-dom'
+import { getClassList } from '../../services/api-calls'
+
+
 
 
 const CreateChar = () => {
+  const [races, setRaces] = useState([])
+  const [classes, setClasses] = useState([])
+  const [charClass, setCharClass] = useState([])
+  const [charRace, setRace] = useState([])
+
+  useEffect(()=> {
+    getRaceList()
+    .then(raceData => setRaces(raceData.results))
+    getClassList()
+    .then(classData => setClasses(classData.results))
+  }, [charClass, charRace])
+
+  console.log(races)
+  console.log(classes)
+  
   const [STR, setSTR] = useState('')
   const [DEX, setDEX] = useState('')
   const [CON, setCON] = useState('')
@@ -30,7 +50,7 @@ const CreateChar = () => {
   function getRandomInt () {
     let min = Math.ceil(3);
     let max = Math.floor(18);
-    return Math.floor(Math.random() * (max - min) + min); 
+    return (Math.floor(Math.random() * (max - min) + min)) 
   }  
   
   const rollStat = (e) =>{
@@ -58,40 +78,27 @@ const CreateChar = () => {
       </div>
       <h2>Your Character Deets</h2>
       <h3>Class : 
-        <select name="class" id="class">
-          <option value="Barbarian">Barbarian</option>
-          <option value="Bard">Bard</option>
-          <option value="Cleric">Cleric</option>
-          <option value="Druid">Druid</option>
-          <option value="Fighter">Fighter</option>
-          <option value="Monk">Monk</option>
-          <option value="Paladin">Paladin</option>
-          <option value="Ranger">Ranger</option>
-          <option value="Rogue">Rogue</option>
-          <option value="Sorcerer">Sorcerer</option>
-          <option value="Warlock">Warlock</option>
-          <option value="Wizard">Wizard</option>
+        <select name="charClass" id="charClass">
+          {classes.map((char) => (
+            <option value={char.name}>{char.name}</option>
+          ))}
         </select>
       </h3>
       <h3>Race : 
-        <select name="Race" id="Race">
-            <option value="dragonborn">Dragonborn</option>
-            <option value="dwarf">Drawf</option>
-            <option value="elf">Elf</option>
-            <option value="gnome">Gnome</option>
-            <option value="half-elf">Half-Elf</option>
-            <option value="half-orc">Half-Orc</option>
-            <option value="halfling">Halfling</option>
-            <option value="human">Human</option>
-            <option value="tiefling">Tiefling</option>
+        <select name="charRace" id="charRace">
+        {races.map((race) => (
+                <option value={race.name}>{race.name}</option>
+          ))}
           </select>
         </h3>
-      <h4>STR: {STR} ({table[STR]}) </h4>
-      <h4>DEX: {DEX} ({table[DEX]})</h4>
-      <h4>CON: {CON} ({table[CON]})</h4>
-      <h4>INT: {INT} ({table[INT]})</h4>
-      <h4>WIS: {WIS} ({table[WIS]})</h4>
-      <h4>CHA: {CHA} ({table[CHA]})</h4>
+      <div>
+        <h4 className='icon-container stats'>STR: {STR} ({table[STR]}) </h4>
+        <h4 className='icon-container stats'>DEX: {DEX} ({table[DEX]})</h4>
+        <h4 className='icon-container stats'>CON: {CON} ({table[CON]})</h4>
+        <h4 className='icon-container stats'>INT: {INT} ({table[INT]})</h4>
+        <h4 className='icon-container stats'>WIS: {WIS} ({table[WIS]})</h4>
+        <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]})</h4>
+      </div>  
       
     </>
   );

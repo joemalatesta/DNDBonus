@@ -11,8 +11,8 @@ const RaceList = (props) => {
   }, [])
   return (
     <>
+      <h3>Race List</h3>
       <div className='app'>
-        <h3>Race List</h3>
         <div className='icon-container'>
           {races.map((raceTitle) => (
             <Link to='/race' state={{raceTitle}} key={raceTitle.index}>

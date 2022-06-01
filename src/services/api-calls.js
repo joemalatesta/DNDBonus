@@ -4,7 +4,7 @@ export function getClassList() {
   return fetch(`${baseUrl}/api/classes`)
   .then(res => res.json())
 }
-
+// fetch to https://www.dnd5eapi.co/api/races/whateverRace
 // fetch to https://www.dnd5eapi.co/api/classes/whateverClass
 // fetch to https://www.dnd5eapi.co/api/monsters/whateverMonster
 export function getDetails(apiUrl) {

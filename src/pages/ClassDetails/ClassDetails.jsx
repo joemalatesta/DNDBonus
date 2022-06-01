@@ -14,7 +14,7 @@ const ClassDetails = () => {
     console.log(classDetails)
   return (
     <>
-      <div className='app'>
+      <div>
         <img 
           style={{ width: "100px", height: "100px" }}
           src={`/images/${classDetails.name}.svg`} 
@@ -22,15 +22,17 @@ const ClassDetails = () => {
         />
         <h3>Class Details</h3>
         {classDetails.name ?
-          <>
-            <h2>{classDetails.name}</h2>
-            <div>Hit die: d{classDetails.hit_die}</div>
-            <h3>Speed: {classDetails.speed}</h3>
-            <h3>Proficiencies:</h3>
-            {classDetails.proficiencies.map((proficiency) => (
-              <div key={proficiency.index}>{proficiency.name}</div>
-            ))}
-          </>
+          <div className='app'>
+            <div className='card'>
+              <h2>{classDetails.name}</h2>
+              <div>Hit die: d{classDetails.hit_die}</div>
+              <h3>Speed: {classDetails.speed}</h3>
+              <h3>Proficiencies:</h3>
+              {classDetails.proficiencies.map((proficiency) => (
+                <div key={proficiency.index}>{proficiency.name}</div>
+                ))}
+            </div>
+          </div>
           :
           <>
             <h2>Loading class details...</h2>
