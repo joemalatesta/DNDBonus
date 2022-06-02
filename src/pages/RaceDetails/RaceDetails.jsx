@@ -13,18 +13,18 @@ const RaceDetails = () => {
     getDetails(location.state.raceTitle.url)
     .then(raceDetails => setRaceDetails(raceDetails))
   }, [])
-    console.log(raceDetails)
+
   return (
     <>
-    <img 
-      style={{ width: "100px", height: "100px" }}
-      src={`/images/${raceDetails.name}.png`} 
-      alt="class-logo"
-    />
-      <h1>{raceDetails.name}</h1>
       <div className='app'>
         <div className='center'>
           <div className='card'>
+      <img 
+        style={{ width: "100px", height: "100px" }}
+        src={`/images/${raceDetails.name}.png`} 
+        alt="class-logo"
+      />
+      <h1>{raceDetails.name}</h1>
             <h3>Class Details</h3>
             <h4>Speed: {raceDetails.speed}</h4>
             <h4>Alignment:</h4>

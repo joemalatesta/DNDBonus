@@ -23,7 +23,7 @@ function App() {
   ])
   return (
     <>
-      <div>
+      <div className='basepic'>
         <NavBar navItems={navItems} />
         <Routes>
           <Route path='/' element={ "/" } />

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 const SpellDetails = (props) => {
   const [spellDetails, setSpellDetails] = useState({})
   const { spellName } = useParams()
-  console.log(spellDetails);
+  
   useEffect(() => {
     getSpellDetails(spellName)
     .then(spellData => setSpellDetails(spellData))
@@ -13,12 +13,12 @@ const SpellDetails = (props) => {
 
   return (
   <>
-    <h3>Spell Details</h3>
-      <h1>{spellDetails.name}</h1>
     <div>
       { spellDetails.name ? 
       <div className='app'>
         <div className='card'>
+        <h3>Spell Details</h3>
+          <h1>{spellDetails.name}</h1>
           <h3>Description :</h3>
           <p>{spellDetails.desc[0]}</p>
           <h3>Attack Type: {spellDetails.attack_type}</h3>

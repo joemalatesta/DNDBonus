@@ -116,3 +116,21 @@ body {
   margin: 1rem;
   width: 200px;
 }
+
+.basepic {
+  background-image: url("../public/images/DnD.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 1400px;
+  height: 900px;
+}
+
+/* .charSheet {
+  background-image: url('../public/images/CharSheet.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 1100px;
+  height: 900px;
+} */

@@ -11,19 +11,19 @@ const ClassDetails = () => {
     getDetails(location.state.classTitle.url)
     .then(classDetails => setClassDetails(classDetails))
   }, [])
-    console.log(classDetails)
+  
   return (
     <>
       <div>
-        <img 
-          style={{ width: "100px", height: "100px" }}
-          src={`/images/${classDetails.name}.svg`} 
-          alt="class-logo"
-        />
-        <h3>Class Details</h3>
         {classDetails.name ?
           <div className='app'>
             <div className='card'>
+            <img 
+              style={{ width: "100px", height: "100px" }}
+              src={`/images/${classDetails.name}.svg`} 
+              alt="class-logo"
+            />
+            <h3>Class Details</h3>
               <h2>{classDetails.name}</h2>
               <div>Hit die: d{classDetails.hit_die}</div>
               <h3>Speed: {classDetails.speed}</h3>
