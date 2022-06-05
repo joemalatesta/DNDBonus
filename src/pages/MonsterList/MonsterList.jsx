@@ -13,7 +13,10 @@ const MonsterList = (props) => {
 
   return ( 
     <>
-      <h3>Monster List</h3>
+    <div className="app">
+
+      <h1 className="title" >Monster List</h1>
+    </div>
     <div className="app">
       {monsterList.length ? 
       <>
