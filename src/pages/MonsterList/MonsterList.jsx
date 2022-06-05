@@ -15,7 +15,7 @@ const MonsterList = (props) => {
     <>
     <div className="app">
 
-      <h1 className="title" >Monster List</h1>
+      <h2 className="title" >Monster List</h2>
     </div>
     <div className="app">
       {monsterList.length ? 
