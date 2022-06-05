@@ -7,7 +7,6 @@ const ClassDetails = () => {
   let location = useLocation()
 
   useEffect(()=> {
-    // This is where the API call will go
     getDetails(location.state.classTitle.url)
     .then(classDetails => setClassDetails(classDetails))
   }, [])

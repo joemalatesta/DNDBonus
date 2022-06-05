@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
 import { getDetails } from '../../services/api-calls';
+import { useLocation } from 'react-router-dom';
 
 
 
 const CreateChar = () => {
+  let location = useLocation()
   const [races, setRaces] = useState([])
   const [classes, setClasses] = useState([])
   const [charClass, setCharClass] = useState([])
@@ -16,24 +18,41 @@ const CreateChar = () => {
   const [INT, setINT] = useState('')
   const [WIS, setWIS] = useState('')
   const [CHA, setCHA] = useState('')
+  const [currentClass, setCurrentClass] = useState([])
+
 
   useEffect(()=> {
-    getRaceList()
-    .then(raceData => setRaces(raceData.results))
     getClassList()
     .then(classData => setClasses(classData.results))
   }, [])
 
-  const work = ()=>{
-    getDetails()
-    .then(raceDetail => setCharRace(raceDetail.results))
-    
-    getDetails()
-    .then(charDetail => setCharClass(charDetail.results))
-    console.log(charClass, charRace);
+  useEffect(()=> {
+    getRaceList()
+    .then(raceData => setRaces(raceData.results))
+  }, [])
+
+console.log(currentClass);
+
+
+
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setCurrentClass(e.target.value)
   }
 
-  console.log(charClass,charRace);
+
+
+
+
+  const work = (e)=>{
+    console.log(e);
+    getDetails(location.state.classes.url)
+    .then(classDetail => setCharClass(classDetail.reults))
+    console.log('Char class', charClass);
+  }
+
+
   const table = {
     3: "-4",
     4: "-3",
@@ -85,12 +104,15 @@ const CreateChar = () => {
       <h2>Your Character Deets</h2>
       <div className='card'>
         <h3>Class : 
-          <select onChange={()=> work} name="charClass" id="charClass">
+         
+
+          <select onChange={handleChange} name="charClass" id="charClass">
             {classes.map((char) => (
-              <option value={char.name} key={char.index}>{char.name}</option>
+              <option value={char} key={char.index}>{char.name}</option>
               ))}
           </select>
-
+          
+    
         </h3>
         <h3>Race : 
           <select name="charRace" id="charRace">
