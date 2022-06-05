@@ -2,36 +2,39 @@ import React, { useState, useEffect } from 'react';
 import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
 import { getDetails } from '../../services/api-calls';
-
-
+import { useLocation } from 'react-router-dom';
+import { getClassStats } from '../../services/api-calls';
 
 const CreateChar = () => {
+  let location = useLocation()
   const [races, setRaces] = useState([])
   const [classes, setClasses] = useState([])
   const [charClass, setCharClass] = useState([])
   const [charRace, setCharRace] = useState([])
+  const [classDetails, setClassDetails] = useState({})
   const [STR, setSTR] = useState('')
   const [DEX, setDEX] = useState('')
   const [CON, setCON] = useState('')
   const [INT, setINT] = useState('')
   const [WIS, setWIS] = useState('')
   const [CHA, setCHA] = useState('')
+  const [currentCharClass, setCurrentCharClass] = useState('')
 
 
   useEffect(()=> {
     getClassList()
     .then(classData => setClasses(classData.results))
-  }, [])
-
-  useEffect(()=> {
     getRaceList()
     .then(raceData => setRaces(raceData.results))
-  }, [])
+  }, [currentCharClass])
 
-
+  
   const handleChange = (e) => {
-    console.log(e);
+    console.log(e.target.classes.index)
+    console.log(classes);
+
   }
+
 
   const table = {
     3: "-4",
@@ -72,6 +75,7 @@ const CreateChar = () => {
     setWIS(rollStat())
     setCHA(rollStat())
   }
+
   
   return ( 
     <div className='charSheet'>
@@ -84,11 +88,9 @@ const CreateChar = () => {
       <h2>Your Character Deets</h2>
       <div className='card'>
         <h3>Class : 
-         
-
-          <select onChange={handleChange} name="charClass" id="charClass">
+          <select onChange={ () => handleChange() } name="charClass" id="charClass">
             {classes.map((char) => (
-              <option value={char} url={char.url} key={char.index}>{char.name}</option>
+              <option value={char.name} url={char.url} key={char.index}>{char.name}</option>
               ))}
           </select>
           

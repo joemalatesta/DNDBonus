@@ -31,3 +31,8 @@ export function getRaceList() {
   return fetch(`${baseUrl}/api/races`)
   .then(res => res.json())
 }
+
+export function getClassStats(charClassName) {
+  return fetch(`${baseUrl}/api/class/${charClassName}`)
+  .then(res => res.json())
+}
