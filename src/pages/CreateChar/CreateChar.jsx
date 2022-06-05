@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getRaceList } from '../../services/api-calls'
-import { Link } from 'react-router-dom'
 import { getClassList } from '../../services/api-calls'
-
+import { getDetails } from '../../services/api-calls';
 
 
 
@@ -10,7 +9,7 @@ const CreateChar = () => {
   const [races, setRaces] = useState([])
   const [classes, setClasses] = useState([])
   const [charClass, setCharClass] = useState([])
-  const [charRace, setRace] = useState([])
+  const [charRace, setCharRace] = useState([])
   const [STR, setSTR] = useState('')
   const [DEX, setDEX] = useState('')
   const [CON, setCON] = useState('')
@@ -25,6 +24,16 @@ const CreateChar = () => {
     .then(classData => setClasses(classData.results))
   }, [])
 
+  const work = ()=>{
+    getDetails()
+    .then(raceDetail => setCharRace(raceDetail.results))
+    
+    getDetails()
+    .then(charDetail => setCharClass(charDetail.results))
+    console.log(charClass, charRace);
+  }
+
+  console.log(charClass,charRace);
   const table = {
     3: "-4",
     4: "-3",
@@ -76,11 +85,12 @@ const CreateChar = () => {
       <h2>Your Character Deets</h2>
       <div className='card'>
         <h3>Class : 
-          <select name="charClass" id="charClass">
+          <select onChange={()=> work} name="charClass" id="charClass">
             {classes.map((char) => (
               <option value={char.name} key={char.index}>{char.name}</option>
               ))}
           </select>
+
         </h3>
         <h3>Race : 
           <select name="charRace" id="charRace">
