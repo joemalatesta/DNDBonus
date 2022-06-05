@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
 import { getDetails } from '../../services/api-calls';
-import { useLocation } from 'react-router-dom';
 
 
 
 const CreateChar = () => {
-  let location = useLocation()
   const [races, setRaces] = useState([])
   const [classes, setClasses] = useState([])
   const [charClass, setCharClass] = useState([])
@@ -18,7 +16,6 @@ const CreateChar = () => {
   const [INT, setINT] = useState('')
   const [WIS, setWIS] = useState('')
   const [CHA, setCHA] = useState('')
-  const [currentClass, setCurrentClass] = useState([])
 
 
   useEffect(()=> {
@@ -31,27 +28,10 @@ const CreateChar = () => {
     .then(raceData => setRaces(raceData.results))
   }, [])
 
-console.log(currentClass);
-
-
-
 
   const handleChange = (e) => {
-    console.log(e.target.value);
-    setCurrentClass(e.target.value)
-  }
-
-
-
-
-
-  const work = (e)=>{
     console.log(e);
-    getDetails(location.state.classes.url)
-    .then(classDetail => setCharClass(classDetail.reults))
-    console.log('Char class', charClass);
   }
-
 
   const table = {
     3: "-4",
@@ -108,7 +88,7 @@ console.log(currentClass);
 
           <select onChange={handleChange} name="charClass" id="charClass">
             {classes.map((char) => (
-              <option value={char} key={char.index}>{char.name}</option>
+              <option value={char} url={char.url} key={char.index}>{char.name}</option>
               ))}
           </select>
           

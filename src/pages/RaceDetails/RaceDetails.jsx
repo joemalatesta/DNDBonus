@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getDetails } from '../../services/api-calls';
-import MonsterDetails from '../MonsterDetails/MonsterDetails';
-import Card from '../../components/Card/Card'
+
 
 const RaceDetails = () => {
   const [raceDetails, setRaceDetails] = useState({})
