@@ -18,15 +18,21 @@ const CreateChar = () => {
   const [CHA, setCHA] = useState('')
   const [currentCharClass, setCurrentCharClass] = useState({})
   const [currentCharRace, setCurrentCharRace] = useState({})
+  const [statBonus, setStatBonus] = useState()
+  const [strBonus, setStrBonus] = useState()
+  const [dexBonus, setDexBonus] = useState()
+  const [conBonus, setConBonus] = useState()
+  const [intBonus, setIntBonus] = useState()
+  const [wisBonus, setWisBonus] = useState()
+  const [chaBonus, setChaBonus] = useState()
 
   useEffect(()=> {
     getClassList()
     .then(classData => setClasses(classData.results))
     getRaceList()
     .then(raceData => setRaces(raceData.results))
-  }, [])
-
-  console.log(currentCharRace);
+    getBonuses()
+  }, [currentCharRace])
 
   const handleClassChange = (e) => {
     getClassStats(e.target.value.toLowerCase())
@@ -38,7 +44,6 @@ const CreateChar = () => {
     .then(charRaceData => setCurrentCharRace(charRaceData))
   }
   
-
   const table = {
     3: "-4",
     4: "-3",
@@ -79,14 +84,40 @@ const CreateChar = () => {
     setCHA(rollStat())
   }
 
+  const getBonuses = () => {
+    setStrBonus(0)
+    setDexBonus(0)
+    setConBonus(0)
+    setIntBonus(0)
+    setWisBonus(0)
+    setChaBonus(0)
+
+    currentCharRace.ability_bonuses?.map((stat) => {
+   
+      if(stat.ability_score.index === 'str') {
+        setStrBonus(stat.bonus)  
+      }
+      if(stat.ability_score.index === 'dex' ) {
+        setDexBonus(stat.bonus)
+      }
+      if(stat.ability_score.index === 'con') {
+        setConBonus(stat.bonus)
+      }
+      if(stat.ability_score.index === 'int') {
+        setIntBonus(stat.bonus)
+      }
+      if(stat.ability_score.index === 'wis') {
+        setWisBonus(stat.bonus)
+      }
+      if(stat.ability_score.index === 'cha') {
+        setChaBonus(stat.bonus)
+      }
+    })
+  }
   
   return ( 
     <div className='charSheet'>
-      <div>
-        <form onSubmit={rollStats}>
-        <button type="submit">Roll Stats</button>
-        </form>
-      </div>
+     
       <div className='app'>
         <div className='card'>
           <h2>Your Character Deets</h2>
@@ -104,16 +135,21 @@ const CreateChar = () => {
               ))}
             </select>
           </h3>
+          <div>
+            <form onSubmit={rollStats}>
+              <button type="submit">Roll Stats</button>
+            </form>
+          </div>
           <h3>Hit die: {currentCharClass.hit_die}</h3>
         </div>
       </div>
       <div>
-        <h4 className='icon-container stats'>STR: {STR} ({table[STR]}) </h4>
-        <h4 className='icon-container stats'>DEX: {DEX} ({table[DEX]})</h4>
-        <h4 className='icon-container stats'>CON: {CON} ({table[CON]})</h4>
-        <h4 className='icon-container stats'>INT: {INT} ({table[INT]})</h4>
-        <h4 className='icon-container stats'>WIS: {WIS} ({table[WIS]})</h4>
-        <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]})</h4>
+        <h4 className='icon-container stats'>STR: {STR} ({table[STR]}) Bonus:  {strBonus ? strBonus : 0} </h4>
+        <h4 className='icon-container stats'>DEX: {DEX} ({table[DEX]}) Bonus:  {dexBonus ? dexBonus : 0} </h4>
+        <h4 className='icon-container stats'>CON: {CON} ({table[CON]}) Bonus:  {conBonus ? conBonus : 0}</h4>
+        <h4 className='icon-container stats'>INT: {INT} ({table[INT]}) Bonus:  {intBonus ? intBonus : 0}</h4>
+        <h4 className='icon-container stats'>WIS: {WIS} ({table[WIS]}) Bonus:  {wisBonus ? wisBonus : 0}</h4>
+        <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]}) Bonus:  {chaBonus ? chaBonus : 0}</h4>
       </div>  
     </div>
 
