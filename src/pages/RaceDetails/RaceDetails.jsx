@@ -28,6 +28,18 @@ const RaceDetails = () => {
             <h4>Speed: {raceDetails.speed}</h4>
             <h4>Alignment:</h4>
             <p>{raceDetails.alignment} </p>
+            <h4>Languages</h4>
+            {raceDetails.languages?.length ? 
+              <>
+                {raceDetails.languages.map((info)=>
+                <div key={info.name}>
+                  <p>{info.name}</p>
+                  </div>
+                )}
+              </>
+              :
+              <p>This poor slob has no traits</p>
+            }
             <h4>Size Description</h4>
             <p>{raceDetails.size_description}</p>
             <h3>Traits</h3>

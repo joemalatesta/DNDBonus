@@ -26,7 +26,8 @@ const CreateChar = () => {
     .then(raceData => setRaces(raceData.results))
   }, [])
 
-  
+  console.log(currentCharRace);
+
   const handleClassChange = (e) => {
     getClassStats(e.target.value.toLowerCase())
     .then(charClassData => setCurrentCharClass(charClassData))
