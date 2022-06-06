@@ -18,7 +18,7 @@ const CreateChar = () => {
   const [INT, setINT] = useState('')
   const [WIS, setWIS] = useState('')
   const [CHA, setCHA] = useState('')
-  const [currentCharClass, setCurrentCharClass] = useState('')
+  const [currentCharClass, setCurrentCharClass] = useState({})
 
 
   useEffect(()=> {
@@ -26,11 +26,13 @@ const CreateChar = () => {
     .then(classData => setClasses(classData.results))
     getRaceList()
     .then(raceData => setRaces(raceData.results))
+     
   }, [currentCharClass])
 
-  
+  console.log(currentCharClass)
+
   const handleChange = (e) => {
-    console.log(e.target.classes.index)
+    console.log(currentCharClass)
     console.log(classes);
 
   }
@@ -88,7 +90,7 @@ const CreateChar = () => {
       <h2>Your Character Deets</h2>
       <div className='card'>
         <h3>Class : 
-          <select onChange={ () => handleChange() } name="charClass" id="charClass">
+          <select onChange={ () =>  handleChange } name="charClass" id="charClass">
             {classes.map((char) => (
               <option value={char.name} url={char.url} key={char.index}>{char.name}</option>
               ))}
