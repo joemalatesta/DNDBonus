@@ -33,6 +33,12 @@ export function getRaceList() {
 }
 
 export function getClassStats(charClassName) {
-  return fetch(`${baseUrl}/api/class/${charClassName}`)
-  .then(res => res.json())
+  return fetch(`${baseUrl}/api/classes/${charClassName}`)
+  .then(res => {return res.json()})
+  .then(data => data)
+}
+export function getRaceStats(charRaceName) {
+  return fetch(`${baseUrl}/api/races/${charRaceName}`)
+  .then(res => {return res.json()})
+  .then(data => data)
 }

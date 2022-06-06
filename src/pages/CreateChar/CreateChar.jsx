@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
-import { getDetails } from '../../services/api-calls';
-import { useLocation } from 'react-router-dom';
-import { getClassStats } from '../../services/api-calls';
+import { getClassStats } from '../../services/api-calls'
+import { getRaceStats } from '../../services/api-calls'
 
 const CreateChar = () => {
-  let location = useLocation()
   const [races, setRaces] = useState([])
   const [classes, setClasses] = useState([])
-  const [charClass, setCharClass] = useState([])
+  const [charClass, setCharClass] = useState({})
   const [charRace, setCharRace] = useState([])
   const [classDetails, setClassDetails] = useState({})
   const [STR, setSTR] = useState('')
@@ -19,24 +17,26 @@ const CreateChar = () => {
   const [WIS, setWIS] = useState('')
   const [CHA, setCHA] = useState('')
   const [currentCharClass, setCurrentCharClass] = useState({})
-
+  const [currentCharRace, setCurrentCharRace] = useState({})
 
   useEffect(()=> {
     getClassList()
     .then(classData => setClasses(classData.results))
     getRaceList()
     .then(raceData => setRaces(raceData.results))
-     
-  }, [currentCharClass])
+  }, [])
 
-  console.log(currentCharClass)
-
-  const handleChange = (e) => {
-    console.log(currentCharClass)
-    console.log(classes);
-
+  
+  const handleClassChange = (e) => {
+    getClassStats(e.target.value.toLowerCase())
+    .then(charClassData => setCurrentCharClass(charClassData))
   }
-
+  
+  const handleRaceChange = (e) => {
+    getRaceStats(e.target.value.toLowerCase())
+    .then(charRaceData => setCurrentCharRace(charRaceData))
+  }
+  
 
   const table = {
     3: "-4",
@@ -83,28 +83,28 @@ const CreateChar = () => {
     <div className='charSheet'>
       <div>
         <form onSubmit={rollStats}>
-
-          <button type="submit">Roll Stats</button>
+        <button type="submit">Roll Stats</button>
         </form>
       </div>
-      <h2>Your Character Deets</h2>
-      <div className='card'>
-        <h3>Class : 
-          <select onChange={ () =>  handleChange } name="charClass" id="charClass">
-            {classes.map((char) => (
-              <option value={char.name} url={char.url} key={char.index}>{char.name}</option>
+      <div className='app'>
+        <div className='card'>
+          <h2>Your Character Deets</h2>
+          <h3>Class : 
+            <select onChange={ value =>  handleClassChange(value) } name="charClass" id="charClass">
+              {classes.map((char) => (
+                <option value={char.name} key={char.index}>{char.name}</option>
               ))}
-          </select>
-          
-    
-        </h3>
-        <h3>Race : 
-          <select name="charRace" id="charRace">
-          {races.map((race) => (
-            <option value={race.name} key={race.index}>{race.name}</option>
-            ))}
             </select>
-        </h3>
+          </h3>
+          <h3>Race : 
+            <select onChange={ value =>  handleRaceChange(value) } name="charRace" id="charRace">
+              {races.map((race) => (
+                <option value={race.name} key={race.index}>{race.name}</option>
+              ))}
+            </select>
+          </h3>
+          <h3>Hit die: {currentCharClass.hit_die}</h3>
+        </div>
       </div>
       <div>
         <h4 className='icon-container stats'>STR: {STR} ({table[STR]}) </h4>
@@ -114,8 +114,8 @@ const CreateChar = () => {
         <h4 className='icon-container stats'>WIS: {WIS} ({table[WIS]})</h4>
         <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]})</h4>
       </div>  
-      <div></div>
     </div>
+
   );
 }
 export default CreateChar;
