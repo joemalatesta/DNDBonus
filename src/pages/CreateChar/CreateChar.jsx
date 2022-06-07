@@ -156,12 +156,16 @@ const CreateChar = () => {
             <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]}) Bonus:  {chaBonus ? chaBonus : 0}</h4>
           </div> 
           <div className='card'> 
-            <h2>Starting Proficiencies</h2>
-                <p>
-                  {currentCharRace.starting_proficiencies?.map((stat) => (
-                    <p value={stat.name} key={stat.index}>{stat.name}</p>
-                    ))}
-                </p>
+          <h2>Starting Proficiencies</h2>
+            {currentCharRace.starting_proficiencies?.length ?
+              <p>
+                {currentCharRace.starting_proficiencies?.map((stat) => (
+                  <p value={stat.name} key={stat.index}>{stat.name}</p>
+                  ))}
+              </p>
+                :
+                <p>got none</p>
+                  }    
             <h2>Sub Races</h2>
               <p>
               {currentCharRace.subraces?.map((stat) => (
