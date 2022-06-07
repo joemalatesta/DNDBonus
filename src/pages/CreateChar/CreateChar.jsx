@@ -114,6 +114,8 @@ const CreateChar = () => {
       }
     })
   }
+
+  console.log(currentCharRace);
   
   return ( 
     <div className='charSheet'>
@@ -143,14 +145,32 @@ const CreateChar = () => {
           <h3>Hit die: {currentCharClass.hit_die}</h3>
         </div>
       </div>
-      <div>
-        <h4 className='icon-container stats'>STR: {STR} ({table[STR]}) Bonus:  {strBonus ? strBonus : 0} </h4>
-        <h4 className='icon-container stats'>DEX: {DEX} ({table[DEX]}) Bonus:  {dexBonus ? dexBonus : 0} </h4>
-        <h4 className='icon-container stats'>CON: {CON} ({table[CON]}) Bonus:  {conBonus ? conBonus : 0}</h4>
-        <h4 className='icon-container stats'>INT: {INT} ({table[INT]}) Bonus:  {intBonus ? intBonus : 0}</h4>
-        <h4 className='icon-container stats'>WIS: {WIS} ({table[WIS]}) Bonus:  {wisBonus ? wisBonus : 0}</h4>
-        <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]}) Bonus:  {chaBonus ? chaBonus : 0}</h4>
-      </div>  
+      <div className='app'>
+        <div className='grid'>
+          <div>
+            <h4 className='icon-container stats'>STR: {STR} ({table[STR]}) Bonus:  {strBonus ? strBonus : 0} </h4>
+            <h4 className='icon-container stats'>DEX: {DEX} ({table[DEX]}) Bonus:  {dexBonus ? dexBonus : 0} </h4>
+            <h4 className='icon-container stats'>CON: {CON} ({table[CON]}) Bonus:  {conBonus ? conBonus : 0}</h4>
+            <h4 className='icon-container stats'>INT: {INT} ({table[INT]}) Bonus:  {intBonus ? intBonus : 0}</h4>
+            <h4 className='icon-container stats'>WIS: {WIS} ({table[WIS]}) Bonus:  {wisBonus ? wisBonus : 0}</h4>
+            <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]}) Bonus:  {chaBonus ? chaBonus : 0}</h4>
+          </div> 
+          <div className='card'> 
+            <h2>Starting Proficiencies</h2>
+                <p>
+                  {currentCharRace.starting_proficiencies?.map((stat) => (
+                    <p value={stat.name} key={stat.index}>{stat.name}</p>
+                    ))}
+                </p>
+            <h2>Sub Races</h2>
+              <p>
+              {currentCharRace.subraces?.map((stat) => (
+                <p value={stat.name} key={stat.index}>{stat.name}</p>
+                ))} 
+              </p>
+          </div> 
+        </div>
+      </div>
     </div>
 
   );
