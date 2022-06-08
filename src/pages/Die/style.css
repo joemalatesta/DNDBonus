@@ -122,9 +122,10 @@
   margin: 0 -50px;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 86px solid rgb(190, 6, 6);
-  width: 0px;
-  height: 0px;
+  border-bottom: 86px solid rgba(183, 0, 0, 0.794);
+  border-radius: 2px;
+  width: 4px;
+  height: 4px;
   transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
