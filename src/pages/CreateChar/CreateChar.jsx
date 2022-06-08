@@ -114,8 +114,6 @@ const CreateChar = () => {
       }
     })
   }
-
-  console.log(currentCharRace);
   
   return ( 
     <div className='charSheet'>
@@ -156,22 +154,26 @@ const CreateChar = () => {
             <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]}) Bonus:  {chaBonus ? chaBonus : 0}</h4>
           </div> 
           <div className='card'> 
-          <h2>Starting Proficiencies</h2>
+            <h2>Starting Proficiencies</h2>
             {currentCharRace.starting_proficiencies?.length ?
-              <p>
+              <div>
                 {currentCharRace.starting_proficiencies?.map((stat) => (
                   <p value={stat.name} key={stat.index}>{stat.name}</p>
-                  ))}
-              </p>
-                :
-                <p>got none</p>
-                  }    
+                ))}
+              </div>
+            :
+              <p>They got no special SKILLZ</p>
+            }    
             <h2>Sub Races</h2>
-              <p>
-              {currentCharRace.subraces?.map((stat) => (
-                <p value={stat.name} key={stat.index}>{stat.name}</p>
+              {currentCharRace.subraces?.length ?
+              <div>
+                {currentCharRace.subraces?.map((stat) => (
+                  <p value={stat.name} key={stat.index}>{stat.name}</p>
                 ))} 
-              </p>
+              </div>
+              :
+              <p>No Sub Races</p>
+              }
           </div> 
         </div>
       </div>

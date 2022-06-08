@@ -21,6 +21,7 @@ function App() {
     {url: "/spell-search", name: "Search for Spells"},
     {url: "/create-char", name: "Create Character"},
   ])
+  
   return (
     <>
       <div className='basepic'>
