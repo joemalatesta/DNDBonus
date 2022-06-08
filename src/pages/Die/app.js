@@ -1,10 +1,8 @@
 const die = document.getElementById("die")
-const roll = document.getElementById('roll')
 let sides = 20
 let initialSide = 1
 let lastFace
 let timeoutId
-let transitionDuration = 300
 let animationDuration  = 200
 
 document.querySelector( 'click',  (evt) => {
@@ -19,14 +17,8 @@ const randomFace = () => {
 }
 
 const rollTo = (face) => {
-  const group = document.querySelector('ul > li > a')
-  const added = document.getElementsByClassName('[href=' + face + ']')
   clearTimeout(timeoutId)
   die.setAttribute('data-face', face)
-}
-
-const reset = () => {
-    die.attr('data-face', null).classList.remove('rolling')
 }
   
   document.addEventListener('click', (evt) => {
