@@ -123,7 +123,7 @@ const CreateChar = () => {
           <h2>Your Character Deets</h2>
           <h3>Class : 
             <select onChange={ value =>  handleClassChange(value) } name="charClass" id="charClass">
-              <option>Pick 1</option>
+              <option>Pick Class</option>
               {classes.map((char) => (
                 <option value={char.name} key={char.index}  >{char.name}</option>
                 ))}
@@ -131,7 +131,7 @@ const CreateChar = () => {
           </h3>
           <h3>Race : 
             <select onChange={ value =>  handleRaceChange(value) } name="charRace" id="charRace">
-              <option>Pick 1</option>
+              <option>Pick Race</option>
               {races.map((race) => (
                 <option value={race.name} key={race.index}>{race.name}</option>
               ))}
