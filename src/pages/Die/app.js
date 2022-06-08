@@ -8,7 +8,6 @@ let transitionDuration = 300
 let animationDuration  = 200
 
 document.querySelector( 'click',  (evt) => {
-  
   rollTo(document.querySelector(this).attr('href'))
   return false
 },('ul > li > a'))
@@ -19,7 +18,6 @@ const randomFace = () => {
   return face;
 }
 
-
 const rollTo = (face) => {
   const group = document.querySelector('ul > li > a')
   const added = document.getElementsByClassName('[href=' + face + ']')
@@ -29,14 +27,12 @@ const rollTo = (face) => {
 
 const reset = () => {
     die.attr('data-face', null).classList.remove('rolling')
-  }
+}
   
   document.addEventListener('click', (evt) => {
-    evt.preventDefault()
-    // die.classList.add('rolling')
+  evt.preventDefault()
   clearTimeout(timeoutId)
   timeoutId = setTimeout(function () {
-    //die.classList.remove('rolling')
     rollTo(randomFace())
   }, animationDuration)
   return false
