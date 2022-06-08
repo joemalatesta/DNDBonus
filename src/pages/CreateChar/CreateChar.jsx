@@ -119,15 +119,12 @@ const CreateChar = () => {
   return ( 
     <div className='charSheet'>
       <div className='app'>
-        <div>
-          <Die></Die>
-        </div>
         <div className='card'>
           <h2>Your Character Deets</h2>
           <h3>Class : 
-            <select onChange={ value =>  handleClassChange(value) } name="charClass" id="charClass">
+            <select defaultValue='Pick 1' onChange={ value =>  handleClassChange(value) } name="charClass" id="charClass">
               {classes.map((char) => (
-                <option value={char.name} key={char.index}>{char.name}</option>
+                <option defaultValue='Pick 1' value={char.name} key={char.index}  >{char.name}</option>
               ))}
             </select>
           </h3>
@@ -139,11 +136,11 @@ const CreateChar = () => {
             </select>
           </h3>
           <div>
-            <form onSubmit={rollStats}>
-              <button type="submit">Roll Stats</button>
-            </form>
           </div>
           <h3>Hit die: {currentCharClass.hit_die}</h3>
+        </div>
+        <div>
+          <Die></Die>
         </div>
       </div>
       <div className='app'>
@@ -155,6 +152,9 @@ const CreateChar = () => {
             <h4 className='icon-container stats'>INT: {INT} ({table[INT]}) Bonus:  {intBonus ? intBonus : 0}</h4>
             <h4 className='icon-container stats'>WIS: {WIS} ({table[WIS]}) Bonus:  {wisBonus ? wisBonus : 0}</h4>
             <h4 className='icon-container stats'>CHA: {CHA} ({table[CHA]}) Bonus:  {chaBonus ? chaBonus : 0}</h4>
+            <form onSubmit={rollStats}>
+              <button type="submit">Roll Stats</button>
+            </form>
           </div> 
           <div className='card'> 
             <h2>Starting Proficiencies</h2>

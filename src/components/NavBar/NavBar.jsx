@@ -1,7 +1,7 @@
 const NavBar = (props) => {
   
   return (
-    <header className="App-header">
+    <header className="App-header ">
       <img 
         
         src="/images/logo.svg" 

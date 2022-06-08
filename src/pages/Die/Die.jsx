@@ -10,7 +10,7 @@ const Die = () => {
   let initialSide = 1
   let lastFace
   let timeoutId
-  let animationDuration  = 200
+  let animationDuration  = 100
   
   const randomFace = () => {
     let face = Math.floor((Math.random() * sides)) + initialSide
@@ -24,7 +24,6 @@ const Die = () => {
   }
   
   btn?.addEventListener('click', (evt)=>{
-    evt.preventDefault()
     rollTo(die.setAttribute('href',evt))
     clearTimeout(timeoutId)
     timeoutId = setTimeout(function () {
@@ -60,7 +59,7 @@ const Die = () => {
         </div>
       </div>
       <div>
-        <button id='btn'>Roll D20</button>
+        <button id='btn'>Roll Da Die</button>
       </div>
     </>
   )

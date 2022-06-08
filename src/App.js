@@ -14,7 +14,6 @@ import RaceDetails from './pages/RaceDetails/RaceDetails'
 
 function App() {
   const [navItems, setNavItems] = useState([
-    // {url: "/", name:"Home"},
     {url: "/class-list", name: "Class List"}, 
     {url: "/race-list", name: "Race List"},
     {url: "/monster-list", name: "Scary Monsters"}, 
@@ -24,20 +23,21 @@ function App() {
   
   return (
     <>
-      <div className='basepic'>
-        <NavBar navItems={navItems} />
-        <Routes>
-          <Route path='/' element={ "/" } />
-          <Route path='/class-list' element={<ClassList />} />
-          <Route path='/class' element={<ClassDetails />} />
-          <Route path='/monster-list' element={<MonsterList />} />
-          <Route path='/monster' element={<MonsterDetails />} />
-          <Route path='/spell-search' element={<SpellSearch />} />
-          <Route path='/spell/:spellName' element={<SpellDetails />} />
-          <Route path='/create-char' element={<CreateChar />} />
-          <Route path='/race-list' element={<RaceList/>} />
-          <Route path='/race' element={<RaceDetails/>} />
-        </Routes>
+      <div className='basepic fixed'>
+      <NavBar navItems={navItems} />
+        <div>
+          <Routes>
+            <Route path='/class-list' element={<ClassList />} />
+            <Route path='/class' element={<ClassDetails />} />
+            <Route path='/monster-list' element={<MonsterList />} />
+            <Route path='/monster' element={<MonsterDetails />} />
+            <Route path='/spell-search' element={<SpellSearch />} />
+            <Route path='/spell/:spellName' element={<SpellDetails />} />
+            <Route path='/create-char' element={<CreateChar />} />
+            <Route path='/race-list' element={<RaceList/>} />
+            <Route path='/race' element={<RaceDetails/>} />
+          </Routes>
+        </div>
       </div>
     </>
   );
