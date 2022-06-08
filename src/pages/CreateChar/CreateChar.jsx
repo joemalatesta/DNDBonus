@@ -3,6 +3,7 @@ import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
 import { getClassStats } from '../../services/api-calls'
 import { getRaceStats } from '../../services/api-calls'
+import Die from '../Die/Die'
 
 const CreateChar = () => {
   const [races, setRaces] = useState([])
@@ -117,8 +118,10 @@ const CreateChar = () => {
   
   return ( 
     <div className='charSheet'>
-     
       <div className='app'>
+        <div>
+          <Die></Die>
+        </div>
         <div className='card'>
           <h2>Your Character Deets</h2>
           <h3>Class : 

@@ -32,10 +32,6 @@
     transform: rotateX(480deg) rotateY(960deg) rotateZ(0deg);
   }
 }
-body {
-  background: rgb(20, 72, 42);
-  padding: 20px;
-}
 
 .content {
   margin: auto auto;
@@ -125,7 +121,7 @@ body {
   margin: 0 -50px;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
-  border-bottom: 86px solid rgba(157, 2, 2, 0.525);
+  border-bottom: 86px solid rgba(195, 0, 0, 0.867);
   width: 0px;
   height: 0px;
   transform-style: preserve-3d;
@@ -207,10 +203,6 @@ body {
   transform: rotateY(540deg) translateZ(75px) translateY(54.18px) rotateX(-11deg);
 }
 
-h2 {
-  color: #fafafa;
-}
-
 ul {
   list-style: none;
   margin: 0;
@@ -219,31 +211,6 @@ ul {
 ul > li {
   display: inline-block;
   margin: 10px 10px;
-}
-
-a {
-  text-align: center;
-  color: #fff;
-  text-decoration: none;
-  font-size: 25px;
-  font-weight: bold;
-  padding: 5px 15px;
-  width: 40px;
-  display: inline-block;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  background-color: #999;
-  align-items: center;
-}
-a.active {
-  background-color: #333;
-}
-a:hover {
-  background-color: #666;
-}
-a.randomize {
-  width: auto;
-  margin: 20px 10px;
 }
 
 /*  Html and CSS by
