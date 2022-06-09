@@ -155,5 +155,11 @@ body {
   align-items: flex;
 }
 
-
+.race {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 1000px;
+  
+}
 

@@ -45,6 +45,9 @@ const CreateChar = () => {
     .then(charRaceData => setCurrentCharRace(charRaceData))
   }
   
+  console.log(currentCharRace);
+  console.log(currentCharClass);
+
   const table = {
     3: "-4",
     4: "-3",
