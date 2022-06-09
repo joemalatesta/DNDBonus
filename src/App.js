@@ -11,7 +11,6 @@ import SpellDetails from './pages/SpellDetails/SpellDetails'
 import CreateChar from './pages/CreateChar/CreateChar'
 import RaceList from './pages/RaceList/RaceList'
 import RaceDetails from './pages/RaceDetails/RaceDetails'
-import FullClassDetails from './pages/FullClassDetails/FullClassDetails'
 
 function App() {
   const [navItems, setNavItems] = useState([
@@ -37,7 +36,6 @@ function App() {
             <Route path='/create-char' element={<CreateChar />} />
             <Route path='/race-list' element={<RaceList/>} />
             <Route path='/race' element={<RaceDetails/>} />
-            <Route path='/class/fullClassDetails' element={<FullClassDetails/>} />
           </Routes>
         </div>
       </div>
