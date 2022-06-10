@@ -209,3 +209,7 @@ body {
   100% { transform: scale(1); }
 }
 
+.lowerGridCard {
+  display: grid;
+  grid-area: auto;
+}

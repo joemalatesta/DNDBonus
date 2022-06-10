@@ -47,17 +47,20 @@ const ClassDetails = () => {
               {toggle ? 'Hide Details' : 'Show Details'}
             </button>
             {toggle &&
-              <div>
-                <div>Hit die: d{classDetails.hit_die}</div>
-                  <h3>Speed: {classDetails.speed}</h3>
-                  <h3>Proficiencies:</h3>
-                  {classDetails.proficiencies.map((proficiency) => (
-                    <div key={proficiency.index}>{proficiency.name}</div>
-                    ))}
-                  <h3>Starting Stuff</h3>  
-                  {classDetails.starting_equipment.map((stuff)=>(
-                    <div key={stuff.index}>{stuff.equipment.name}</div>
-                    ))}
+              <div className='lowerCard'>
+                <div className='lowerGridCard'>
+                  <div>Hit die: d{classDetails.hit_die}</div>
+                    <h3>Speed: {classDetails.speed}</h3>
+                    <h3>Proficiencies:</h3>
+                    {classDetails.proficiencies.map((proficiency) => (
+                      <div key={proficiency.index}>{proficiency.name}</div>
+                      ))}
+                    <h3>Starting Stuff</h3>  
+                    {classDetails.starting_equipment.map((stuff)=>(
+                      <div key={stuff.index}>{stuff.equipment.name}</div>
+                      ))}
+                </div>
+
               </div>
             }
             </div>
