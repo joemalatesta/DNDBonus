@@ -13,7 +13,7 @@ const RaceList = (props) => {
     <>
       <h3>Race List</h3>
       <div className='app'>
-        <div className='icon-container'>
+        <div className='icon-container zoom'>
           {races.map((raceTitle) => (
             <Link to='/race' state={{raceTitle}} key={raceTitle.index}>
               <div id="classDiv" >
