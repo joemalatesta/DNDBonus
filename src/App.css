@@ -30,6 +30,7 @@ body {
   width: clamp(400px, 80vw, 1200px);
   margin: auto;
   justify-content: center;
+  border-radius: 10px;
 }
 
 #classDiv {
@@ -40,6 +41,7 @@ body {
   justify-items: center;
   padding: 15px;
   margin: 1rem;
+  border-radius: 10px;
 }
 
 .App-header {
@@ -190,3 +192,20 @@ body {
   border: none;
   color:blue  
 }
+
+.zoom a:hover{
+  transform: scale(1.1);
+  transition: all ease 500ms;
+}
+
+.pulse a:hover{ 
+  animation: pulse 1s infinite;
+  animation-timing-function: linear;   
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1);}
+  100% { transform: scale(1); }
+}
+

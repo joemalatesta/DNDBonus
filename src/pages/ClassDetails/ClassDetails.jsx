@@ -35,7 +35,7 @@ const ClassDetails = () => {
                   <button 
                     hidden={toggle ? false : true } 
                     onClick={()=> setToggle(!toggle)} 
-                    style={{width: "40px", height:"40px", backgroundColor:"transparent", border:"none"}}
+                    style={{width: "40px", height:"40px", backgroundColor:"transparent", border:"none", color:"blue"}}
                     >
                     {toggle ? 'X' : 'Show Details'}
                   </button>
@@ -45,7 +45,7 @@ const ClassDetails = () => {
             {classDetails.subclasses.map((sub)=>(
               <p>{sub.name}</p>
             ))}
-            <button hidden={toggle ? true : false} onClick={()=> setToggle(!toggle)} className='smallCardBtn'>
+            <button hidden={toggle ? true : false} onClick={()=> setToggle(!toggle)} className='pulse smallCardBtn'>
               {toggle ? 'Hide Details' : 'Show Details'}
             </button>
             {toggle &&
