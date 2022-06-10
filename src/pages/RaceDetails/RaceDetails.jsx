@@ -41,6 +41,7 @@ const RaceDetails = () => {
                 <button hidden={toggle ? true : false} onClick={()=> setToggle(!toggle)} className='pulse smallCardBtn'>
                   {toggle ? 'Hide Details' : 'Show Details'}
                 </button>
+                </div>
                 {toggle &&
                   <div>
                     <h3 hidden={toggle ? true : false} >quick view</h3>
@@ -75,7 +76,6 @@ const RaceDetails = () => {
                     }
                   </div>            
                 }
-              </div>
             </div>
           </div>  
         :
