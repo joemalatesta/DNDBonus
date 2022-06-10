@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getDetails } from '../../services/api-calls';
 
+
 const ClassDetails = () => {
   const [classDetails, setClassDetails] = useState({})
   const [toggle, setToggle] = useState (false)
@@ -12,18 +13,15 @@ const ClassDetails = () => {
     .then(classDetails => setClassDetails(classDetails))
   }, [])
 
-  console.log(classDetails);
-  
   return (
     <>
       <div>
         {classDetails.name ?
           <div className='app'>
             <div className={toggle ? 'largeCard' : 'card'}>
-              <div className='name pic'></div>
                 <div className={toggle ? 'largeHeader cardBtn' : '' }>
                   <img 
-                    style={toggle ? { width: "200px", height: "200px" } :{ width: "100px", height: "100px" }}
+                    style={toggle ? { width: "200px", height: "200px" } : { width: "100px", height: "100px" }}
                     src={`/images/${classDetails.name}.svg`} 
                     alt="class-logo"
                   />
@@ -36,7 +34,7 @@ const ClassDetails = () => {
                     hidden={toggle ? false : true } 
                     onClick={()=> setToggle(!toggle)} 
                     style={{width: "40px", height:"40px", backgroundColor:"transparent", border:"none", color:"blue"}}
-                    >
+                  >
                     {toggle ? 'X' : 'Show Details'}
                   </button>
                 </div>  
