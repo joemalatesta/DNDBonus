@@ -45,7 +45,7 @@ const ClassDetails = () => {
             {classDetails.subclasses.map((sub)=>(
               <p>{sub.name}</p>
             ))}
-            <button hidden={toggle ? true : false} onClick={()=> setToggle(!toggle)} >
+            <button hidden={toggle ? true : false} onClick={()=> setToggle(!toggle)} className='smallCardBtn'>
               {toggle ? 'Hide Details' : 'Show Details'}
             </button>
             {toggle &&
