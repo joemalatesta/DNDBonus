@@ -174,4 +174,14 @@ body {
   border-radius: 10px;
 }
 
+.largeHeader {
+  display:flex;
+  justify-content:start;
+}
+
+.cardBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
 

@@ -21,18 +21,31 @@ const ClassDetails = () => {
           <div className='app'>
             <div className={toggle ? 'largeCard' : 'card'}>
               <div className='name pic'></div>
-            <img 
-              style={{ width: "100px", height: "100px" }}
-              src={`/images/${classDetails.name}.svg`} 
-              alt="class-logo"
-            />
-            <h3 hidden={toggle ? true : false}>Class Details</h3>
-            <h2>{classDetails.name}</h2>
+                <div className={toggle ? 'largeHeader cardBtn' : '' }>
+                  <img 
+                    style={toggle ? { width: "200px", height: "200px" } :{ width: "100px", height: "100px" }}
+                    src={`/images/${classDetails.name}.svg`} 
+                    alt="class-logo"
+                  />
+                  {toggle ?
+                    <h1 style={{fontSize:"50px"}}>{classDetails.name.toUpperCase()}</h1>
+                    :
+                    <h2>{classDetails.name}</h2>
+                  }
+                  <button 
+                    hidden={toggle ? false : true } 
+                    onClick={()=> setToggle(!toggle)} 
+                    style={{width: "40px", height:"40px", backgroundColor:"transparent", border:"none"}}
+                    >
+                    {toggle ? 'X' : 'Show Details'}
+                  </button>
+                </div>  
+              <h3 hidden={toggle ? true : false}>Class Details</h3>
             <h3>Sub Classes</h3>
             {classDetails.subclasses.map((sub)=>(
               <p>{sub.name}</p>
             ))}
-            <button onClick={()=> setToggle(!toggle)}>
+            <button hidden={toggle ? true : false} onClick={()=> setToggle(!toggle)} >
               {toggle ? 'Hide Details' : 'Show Details'}
             </button>
             {toggle &&
