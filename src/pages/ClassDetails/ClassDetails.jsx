@@ -30,7 +30,7 @@ const ClassDetails = () => {
                   {toggle ?
                     <h1 style={{fontSize:"50px"}}>{classDetails.name.toUpperCase()}</h1>
                     :
-                    <h2>{classDetails.name}</h2>
+                    <h1>{classDetails.name}</h1>
                   }
                   <button 
                     hidden={toggle ? false : true } 
@@ -40,7 +40,7 @@ const ClassDetails = () => {
                     {toggle ? 'X' : 'Show Details'}
                   </button>
                 </div>  
-              <h3 hidden={toggle ? true : false}>Class Details</h3>
+              <h3 hidden={toggle ? true : false}>Quick View</h3>
             <h3>Sub Classes</h3>
             {classDetails.subclasses.map((sub)=>(
               <p>{sub.name}</p>
