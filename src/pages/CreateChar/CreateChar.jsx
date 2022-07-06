@@ -119,9 +119,12 @@ const CreateChar = () => {
     })
   }
   
+  const randomIdx = Math.floor(Math.random() * 100)
+
   return ( 
     <div className='charSheet'>
       <div className='app'>
+      <img src={`https://robohash.org/${randomIdx}.png?set=set2`} alt="A scary monster!" />
         <div className='card'>
           <h2>Your Character Deets</h2>
           <h3>Class : 

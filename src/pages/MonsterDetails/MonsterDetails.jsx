@@ -10,11 +10,13 @@ const MonsterDetails = () => {
   useEffect(() => {
     getDetails(location.state.monster.url)
     .then(monsterData => setMonsterDetails(monsterData))
-  })
+  }, [] )
+
 
   return ( 
     <>
     <div className='app'>
+      
       <div className='largeCard'>
         <h3>Monster Deets</h3>
         <h2>{monsterDetails.name}</h2>
