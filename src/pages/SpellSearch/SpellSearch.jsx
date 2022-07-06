@@ -13,23 +13,27 @@ const SpellSearch = (props) => {
 
   return (
     <>
-    <h3>Such Spellz</h3>
-      <SearchForm handleSpellSearch={handleSpellSearch} />
-      {spells.length ? 
-        <>
-    <div className='app'>
-        <div className=''>
-          {spells.map(spell => 
-            <div className='spell_card'>
-              <SpellCard className="card" key={spell.index} spell={spell} />
+      <div className='app'>
+        <div className='card'>
+          <h3>Such Spellz</h3>
+            <SearchForm handleSpellSearch={handleSpellSearch} />
+            {spells.length ? 
+              <>
+          <div className='app'>
+              <div className=''>
+                {spells.map(spell => 
+                  <div className='spell_card'>
+                    <SpellCard className="card" key={spell.index} spell={spell} />
+                  </div>
+                )}
+              </div>  
             </div>
-          )}
-        </div>  
+              </>
+              :
+              <h3>Please search for a spell!</h3>
+            }
+        </div>
       </div>
-        </>
-        :
-        <h3>Please search for a spell!</h3>
-      }
     </>
   );
 }

@@ -15,7 +15,7 @@ const MonsterDetails = () => {
   return ( 
     <>
     <div className='app'>
-      <div className='card'>
+      <div className='largeCard'>
         <h3>Monster Deets</h3>
         <h2>{monsterDetails.name}</h2>
         <h4>Size: {monsterDetails.size}</h4>

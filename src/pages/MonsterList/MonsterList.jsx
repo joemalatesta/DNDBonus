@@ -13,31 +13,29 @@ const MonsterList = (props) => {
 
   return ( 
     <>
-    <div className="app">
-
-      <h2 className="title" >Monster List</h2>
-    </div>
-    <div className="app">
-      {monsterList.length ? 
-      <>
-        {monsterList.map((monster) => (
-          <div className="monster_card" key={monster.index}>
-            <Link
-              to="/monster"
-              state={{ monster }}
-            >
-              {monster.name}
-            </Link><br/>
-          </div>
-        ))}
-      </>
-      :
-      <>
-        <h2>Loading scary monsters...</h2>
-      </>}
+      <div className="app">
+        <h2 className="title card" >Monster List</h2>
+      </div>
+      <div className="app">
+        {monsterList.length ? 
+        <>
+          {monsterList.map((monster) => (
+            <div className="monster_card card" key={monster.index}>
+              <Link
+                to="/monster"
+                state={{ monster }}
+              >
+                {monster.name}
+              </Link><br/>
+            </div>
+          ))}
+        </>
+        :
+        <>
+          <h2>Loading scary monsters...</h2>
+        </>}
       </div>
     </>
-
   );
 }
  
