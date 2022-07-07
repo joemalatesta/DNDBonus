@@ -11,7 +11,9 @@ const RaceList = (props) => {
   }, [])
   return (
     <>
-      <h3>Race List</h3>
+      <div className='app'>
+        <h2 className='title card'>Race List</h2>
+      </div>  
       <div className='app'>
         <div className='icon-container zoom'>
           {races.map((raceTitle) => (

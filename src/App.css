@@ -1,5 +1,5 @@
 body {
-  padding: 10px;
+
   text-align: center;
   font-family: 'Patrick Hand';
 }
@@ -54,7 +54,8 @@ body {
   padding: 30px;
   font-size: calc(10px + 2vmin);
   color: white;
-  width: 1340px;
+  position:sticky;
+
 }
 
 .App-link {
@@ -130,8 +131,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover;
-  width: 1400px;
-  height: 900px;
+  min-height: 100vh;
+ 
 }
 
 .title {
@@ -213,3 +214,4 @@ body {
   display: grid;
   grid-area: auto;
 }
+

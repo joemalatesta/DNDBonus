@@ -12,8 +12,10 @@ const ClassList = (props) => {
 
   return (
     <>
-      <h3>Class List</h3>
       <div className='app'>
+        <h2 className='title card'>Class List</h2>
+      </div>
+      <div className='app'>  
         <div className='icon-container zoom'>
           {classes.map((classTitle) => (
             <Link to='/class' state={{classTitle}} key={classTitle.index}>
