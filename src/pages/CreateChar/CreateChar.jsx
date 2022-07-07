@@ -3,7 +3,7 @@ import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
 import { getClassStats } from '../../services/api-calls'
 import { getRaceStats } from '../../services/api-calls'
-import Die from '../Die/Die'
+import Die from '../../components/Die/Die'
 
 const CreateChar = () => {
   const [races, setRaces] = useState([])
