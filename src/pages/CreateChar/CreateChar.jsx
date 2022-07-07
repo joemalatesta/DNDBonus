@@ -4,6 +4,7 @@ import { getClassList } from '../../services/api-calls'
 import { getClassStats } from '../../services/api-calls'
 import { getRaceStats } from '../../services/api-calls'
 import Die from '../../components/Die/Die'
+import Card from '../../components/Card/Card'
 
 const CreateChar = () => {
   const [races, setRaces] = useState([])
@@ -118,13 +119,15 @@ const CreateChar = () => {
       }
     })
   }
-  
+ 
   const randomIdx = Math.floor(Math.random() * 100)
 
   return ( 
     <div className='charSheet'>
       <div className='app'>
-      <img src={`https://robohash.org/${randomIdx}.png?set=set2`} alt="A scary monster!" />
+        <div className='card'>
+          <img src={`https://robohash.org/${randomIdx}.png?set=set2`} alt="A scary monster!" width='250' />
+        </div>
         <div className='card'>
           <h2>Your Character Deets</h2>
           <h3>Class : 
